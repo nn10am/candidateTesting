@@ -1,0 +1,41 @@
+.form-radio{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form-radio input{
+    margin-bottom: 5px;
+    margin-left: 55px;
+    margin-right: 10px;
+}
+.form-radio p{
+    font-weight: bold;
+}
+p{
+    margin-right: 30px;
+    font-weight: bold;
+}
+h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.TextEss{
+    
+    color: rgb(0, 0, 0);
+    border: none;
+    margin-top: 20px;
+}
+.bailam{
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.submitButton{
+    margin-top: 20px;
+    margin-left: 200px;
+    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
+    color: rgb(33, 255, 13);
+    font-size: 20px;
+}

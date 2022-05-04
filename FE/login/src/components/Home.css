@@ -1,0 +1,33 @@
+nav{
+   background-color: #19cdec;
+}
+ul{
+   list-style-type: none;
+}
+.main-menu{
+   display: flex;
+}
+nav .main-menu li a {
+   color:rgb(255, 255, 255);
+   text-decoration: none;
+   display: block;
+   padding: 10px 40px;
+}
+.main-menu li{
+   position: relative;
+}
+
+nav .main-menu li:hover a {
+   background-color: #27c4ba;
+   transition: all 0.3s;
+}
+ .sub-menu{
+
+  position: absolute;
+  display: none;
+}
+
+.Quanlycauhoi:hover .sub-menu{
+   display: block;
+   background-color: #19cdec;
+   }
