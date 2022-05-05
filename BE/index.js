@@ -12,7 +12,7 @@ app.get("/", (rep, res) => {
 });
 
 // Import candidate routes
-const candidateRoutes = require("./src/routes/employee.route");
+const candidateRoutes = require("./src/routes/candidate.route");
 
 // Create candidate routes
 app.use("/api/candidate", candidateRoutes);

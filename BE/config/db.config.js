@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var dbConn = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
-    database: "bGlobal_database"
+    password: "123456",
+    database: "bglobal"
 });
 
 dbConn.connect(function (error) {
