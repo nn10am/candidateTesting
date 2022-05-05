@@ -1,16 +1,16 @@
-const mysql = require('mysql');
+var mysql = require('mysql');
 
 // Create mysql connetion
 
-const dbConn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'bGlobal_database'
+var dbConn = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "bGlobal_database"
 });
 
-dbConn.connect(function(error){
-    if(error) throw error;
+dbConn.connect(function (error) {
+    if (error) throw error;
     console.log('Database Connected Succesfully!!!!!');
 })
 
