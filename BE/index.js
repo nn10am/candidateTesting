@@ -1,4 +1,4 @@
-const express= require('express');
+const express = require("express");
 
 // Create express app
 const app = express();
@@ -7,17 +7,17 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Define root route
-app.get('/', (rep, res) =>{
-    res.send('I belong to Jesus');
+app.get("/", (rep, res) => {
+  res.send("I belong to Jesus");
 });
 
 // Import candidate routes
-const candidateRoutes = require ('./BE/src/routes/candidate.route.js');
+const candidateRoutes = require("./src/routes/candidate.route.js");
 
 // Create candidate routes
-app.use('/api/candidate', candidateRoutes);
+app.use("/api/candidate", candidateRoutes);
 
 // Listen to the port
-app.listen(port, ()=>{
-    console.log('Express Server is running on port',port);
+app.listen(port, () => {
+  console.log("Express Server is running on port", port);
 });
