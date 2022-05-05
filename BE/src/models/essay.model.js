@@ -12,7 +12,7 @@ var Essay = function (essay) {
 
 // get all essay questions
 Essay.getAllEssay = (result) => {
-    dbConn.query('SELECT * FROM Essay WHERE is_deleted=0', (err, res) => {
+    dbConn.query('SELECT * FROM essay WHERE is_deleted=0', (err, res) => {
         if (err) {
             console.log('Error while fetching essay questions', err);
             result(null, err);
@@ -26,7 +26,7 @@ Essay.getAllEssay = (result) => {
 
 // create new essay questions
 Essay.createEssay = (essayReqData, result) => {
-    dbConn.query('INSERT INTO Essay SET ? ', essayReqData, (err, res) => {
+    dbConn.query('INSERT INTO essay SET ? ', essayReqData, (err, res) => {
         if (err) {
             console.log('Error while inserting data');
             result(null, err);
@@ -39,7 +39,7 @@ Essay.createEssay = (essayReqData, result) => {
 
 // update essay questions
 Essay.updateEssay = (id, essayReqData, result) => {
-    dbConn.query("UPDATE Essay SET categoryID=?,content=?,adminID=? WHERE id = ?", [essayReqData.categoryID, essayReqData.content, essayReqData.adminID, id], (err, res) => {
+    dbConn.query("UPDATE essay SET categoryID=?,content=?,adminID=? WHERE id = ?", [essayReqData.categoryID, essayReqData.content, essayReqData.adminID, id], (err, res) => {
         if (err) {
             console.log('Error while updating the essay question');
             result(null, err);
@@ -52,7 +52,7 @@ Essay.updateEssay = (id, essayReqData, result) => {
 
 // delete essay question
 Essay.deleteEssay = (id, result) => {
-    dbConn.query("UPDATE Essay SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
+    dbConn.query("UPDATE essay SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
         if (err) {
             console.log('Error while deleting the essay question');
             result(null, err);

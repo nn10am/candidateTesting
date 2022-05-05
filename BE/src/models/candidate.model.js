@@ -12,7 +12,7 @@ var Candidate = function (candidate) {
 
 // get all candidates
 Candidate.getAllCandidates = (result) => {
-    dbConn.query('SELECT * FROM Candidates WHERE is_deleted=0', (err, res) => {
+    dbConn.query('SELECT * FROM candidates WHERE is_deleted=0', (err, res) => {
         if (err) {
             console.log('Error while fetching candidate', err);
             result(null, err);
@@ -26,7 +26,7 @@ Candidate.getAllCandidates = (result) => {
 
 // create new candidate
 Candidate.createCandidate = (candidateReqData, result) => {
-    dbConn.query('INSERT INTO Candidates SET ? ', candidateReqData, (err, res) => {
+    dbConn.query('INSERT INTO candidates SET ? ', candidateReqData, (err, res) => {
         if (err) {
             console.log('Error while inserting data');
             result(null, err);
@@ -39,7 +39,7 @@ Candidate.createCandidate = (candidateReqData, result) => {
 
 // update candidate
 Candidate.updateCandidate = (id, candidateReqData, result) => {
-    dbConn.query("UPDATE Candidates SET name=?,code=?,phoneNumber=? WHERE id = ?", [candidateReqData.name, candidateReqData.code, candidateReqData.phoneNumber, id], (err, res) => {
+    dbConn.query("UPDATE candidates SET name=?,code=?,phoneNumber=? WHERE id = ?", [candidateReqData.name, candidateReqData.code, candidateReqData.phoneNumber, id], (err, res) => {
         if (err) {
             console.log('Error while updating the candidate');
             result(null, err);
@@ -52,7 +52,7 @@ Candidate.updateCandidate = (id, candidateReqData, result) => {
 
 // delete candidate
 Candidate.deleteCandidate = (id, result) => {
-    dbConn.query("UPDATE Candidates SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
+    dbConn.query("UPDATE candidates SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
         if (err) {
             console.log('Error while deleting the candidate');
             result(null, err);

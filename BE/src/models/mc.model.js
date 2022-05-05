@@ -16,7 +16,7 @@ var MultipelChoice = function (Mc) {
 
 // get all mc questions
 MultipelChoice.getAllMc = (result) => {
-    dbConn.query('SELECT * FROM MultipleChoice WHERE is_deleted=0', (err, res) => {
+    dbConn.query('SELECT * FROM multiplechoice WHERE is_deleted=0', (err, res) => {
         if (err) {
             console.log('Error while fetching multiple choice questions', err);
             result(null, err);
@@ -30,7 +30,7 @@ MultipelChoice.getAllMc = (result) => {
 
 // create new mc questions
 MultipelChoice.createMc = (McReqData, result) => {
-    dbConn.query('INSERT INTO MultipleChoice SET ? ', McReqData, (err, res) => {
+    dbConn.query('INSERT INTO multiplechoice SET ? ', McReqData, (err, res) => {
         if (err) {
             console.log('Error while inserting data');
             result(null, err);
@@ -43,7 +43,7 @@ MultipelChoice.createMc = (McReqData, result) => {
 
 // update mc questions
 MultipelChoice.updateMc = (id, McReqData, result) => {
-    dbConn.query("UPDATE MultipleChoice SET categoryID=?,content=?,choice1=?,choice2=?,choice3=?,answer=?,adminID=? WHERE id = ?", [McReqData.categoryID, McReqData.content, McReqData.choice1, McReqData.choice2, McReqData.choice3, McReqData.answer, McReqData.adminID, id], (err, res) => {
+    dbConn.query("UPDATE multiplechoice SET categoryID=?,content=?,choice1=?,choice2=?,choice3=?,answer=?,adminID=? WHERE id = ?", [McReqData.categoryID, McReqData.content, McReqData.choice1, McReqData.choice2, McReqData.choice3, McReqData.answer, McReqData.adminID, id], (err, res) => {
         if (err) {
             console.log('Error while updating the multiple choice question');
             result(null, err);
@@ -56,7 +56,7 @@ MultipelChoice.updateMc = (id, McReqData, result) => {
 
 // delete mc question
 MultipelChoice.deleteMc = (id, result) => {
-    dbConn.query("UPDATE MultipleChoice SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
+    dbConn.query("UPDATE multiplechoice SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
         if (err) {
             console.log('Error while deleting the multiple choice question');
             result(null, err);
