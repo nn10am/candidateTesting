@@ -4,15 +4,15 @@ const router = express.Router();
 const candidateController = require('../controllers/candidate.controller');
 
 // get all candidates
-router.get('/', candidateController.getCandidateList);
+router.get('/canlist', candidateController.getCandidateList);
 
 // create new candidate
-router.post('/', candidateController.createNewCandidate);
+router.post('/newcan', candidateController.createNewCandidate);
 
 // update candidate
-router.put('/', candidateController.updateCandidate);
+router.put('/updatecan', candidateController.updateCandidate);
 
 // delete candidate
-router.delete('/', candidateController.deleteCandidate);
+router.delete('/deletecan', candidateController.deleteCandidate);
 
 module.exports = router;

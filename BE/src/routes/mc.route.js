@@ -4,15 +4,15 @@ const router = express.Router();
 const McController = require('../controllers/mc.controller');
 
 // get all mc questions
-router.get('/', McController.getAllMc);
+router.get('/mclist', McController.getAllMc);
 
 // create new mc questions
-router.post('/', McController.createNewMC);
+router.post('/newmc', McController.createNewMC);
 
 // update mc question
-router.put('/', McController.updateMc);
+router.put('/upmc', McController.updateMc);
 
 // delete mc question
-router.delete('/', McController.deleteMc);
+router.delete('/delmc', McController.deleteMc);
 
 module.exports = router;
