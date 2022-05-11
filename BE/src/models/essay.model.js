@@ -12,7 +12,7 @@ var Essay = function (essay) {
 
 // get all essay questions
 Essay.getAllEssay = (result) => {
-    dbConn.query('SELECT * FROM essay WHERE is_deleted=0', (err, res) => {
+    dbConn.query('SELECT * FROM essay', (err, res) => {
         if (err) {
             console.log('Error while fetching essay questions', err);
             result(null, err);

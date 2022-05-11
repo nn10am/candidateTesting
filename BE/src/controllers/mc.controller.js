@@ -2,31 +2,32 @@ const McModel = require('../models/mc.model');
 
 // get all mc questions
 exports.getAllMc = (req, res) => {
-    //console.log('here all candidate list');
+    console.log('here all mc list');
     McModel.getAllMc((err, Mc) => {
         console.log('We are here');
         if (err)
             res.send(err);
         console.log('Multiple choice', Mc);
-        res.send(essay)
+        res.send(Mc)
     })
 }
 
 
 // create new multiple choice question
 exports.createNewMc = (req, res) => {
-    const McReqData = new McModel(req.body);
-    console.log('McReqData', McReqData);
-    // check null
-    if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
-        res.send(400).send({ success: false, message: 'Please fill all fields' });
-    } else {
-        McModel.createMc(McReqData, (err, Mc) => {
-            if (err)
-                res.send(err);
-            res.json({ status: true, message: 'Multiple choice question created successfully', data: Mc.insertId })
-        })
-    }
+    console.log('req data', req.body);
+    // const McReqData = new McModel(req.body);
+    // console.log('McReqData', McReqData);
+    // // check null
+    // if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
+    //     res.send(400).send({ success: false, message: 'Please fill all fields' });
+    // } else {
+    //     McModel.createMc(McReqData, (err, Mc) => {
+    //         if (err)
+    //             res.send(err);
+    //         res.json({ status: true, message: 'Multiple choice question created successfully', data: Mc.insertId })
+    //     })
+    // }
 }
 
 // update multiple choice question

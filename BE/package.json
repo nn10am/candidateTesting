@@ -16,7 +16,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.16"
   },
   "repository": {
     "type": "git",

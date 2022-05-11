@@ -14,20 +14,19 @@ var MultipelChoice = function (Mc) {
     this.updated_at = new Date();
 }
 
+
 // get all mc questions
 MultipelChoice.getAllMc = (result) => {
-    dbConn.query('SELECT * FROM multiplechoice WHERE is_deleted=0', (err, res) => {
+    dbConn.query('SELECT * FROM multiplechoice', (err, res) => {
         if (err) {
-            console.log('Error while fetching multiple choice questions', err);
+            console.log('Error while fetching multiple choice questions', Mc);
             result(null, err);
         } else {
             console.log('Multiple choice questions fetched successfully');
             result(null, res);
         }
-    })
+    });
 }
-
-
 // create new mc questions
 MultipelChoice.createMc = (McReqData, result) => {
     dbConn.query('INSERT INTO multiplechoice SET ? ', McReqData, (err, res) => {
@@ -36,11 +35,10 @@ MultipelChoice.createMc = (McReqData, result) => {
             result(null, err);
         } else {
             console.log('Multiple choice question created successfully');
-            result(null, res)
+            result(null, res);
         }
-    })
+    });
 }
-
 // update mc questions
 MultipelChoice.updateMc = (id, McReqData, result) => {
     dbConn.query("UPDATE multiplechoice SET categoryID=?,content=?,choice1=?,choice2=?,choice3=?,answer=?,adminID=? WHERE id = ?", [McReqData.categoryID, McReqData.content, McReqData.choice1, McReqData.choice2, McReqData.choice3, McReqData.answer, McReqData.adminID, id], (err, res) => {
@@ -53,7 +51,6 @@ MultipelChoice.updateMc = (id, McReqData, result) => {
         }
     });
 }
-
 // delete mc question
 MultipelChoice.deleteMc = (id, result) => {
     dbConn.query("UPDATE multiplechoice SET is_deleted=? WHERE id = ?", [1, id], (err, res) => {
@@ -66,5 +63,4 @@ MultipelChoice.deleteMc = (id, result) => {
         }
     });
 }
-
 module.exports = MultipelChoice;

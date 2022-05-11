@@ -20,7 +20,7 @@ exports.createNewEssay = (req, res) => {
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
         res.send(400).send({ success: false, message: 'Please fill all fields' });
     } else {
-        EssayModel.createEssay(essayReqData, (err, essat) => {
+        EssayModel.createEssay(essayReqData, (err, essay) => {
             if (err)
                 res.send(err);
             res.json({ status: true, message: 'Essay question created successfully', data: essay.insertId })

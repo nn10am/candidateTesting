@@ -10,9 +10,9 @@ router.get('/canlist', candidateController.getCandidateList);
 router.post('/newcan', candidateController.createNewCandidate);
 
 // update candidate
-router.put('/updatecan', candidateController.updateCandidate);
+router.put('/upcan', candidateController.updateCandidate);
 
 // delete candidate
-router.delete('/deletecan', candidateController.deleteCandidate);
+router.delete('/delcan', candidateController.deleteCandidate);
 
 module.exports = router;
