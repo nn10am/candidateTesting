@@ -10,7 +10,7 @@ function EditMCQuestion() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/mclist`).then((res) => {
+    axios.get(`http://localhost:5000/multi-choice`).then((res) => {
       console.log("Đây là res", res.data);
       setDetails({
         name: res.data.contentMC,

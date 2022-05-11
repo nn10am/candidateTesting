@@ -5,15 +5,15 @@ const router = express.Router();
 const McController = require('../controllers/mc.controller');
 
 // get all mc questions
-router.get('/mclist', McController.getAllMc);
+router.get('/multi-choice', McController.getAllMc);
 
 // create new mc questions
-// router.post('/newmc', McController.createMc);
+router.post('/multi-choice', McController.createMc);
 
 // update mc question
-router.put('/upmc', McController.updateMc);
+router.put('/multi-choice/:id', McController.updateMc);
 
 // delete mc question
-router.delete('/delmc', McController.deleteMc);
+router.delete('/multi-choice/:id', McController.deleteMc);
 
 module.exports = router;

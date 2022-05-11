@@ -21,7 +21,7 @@ class MultipleChoiceQuestion extends React.Component {
      }
      */
     async componentDidMount() {
-        let res = await axios.get('http://localhost:5000/mclist')
+        let res = await axios.get('http://localhost:5000/multi-choice')
         this.setState({
             listUsers: res && res.data ? res.data : []
         })
