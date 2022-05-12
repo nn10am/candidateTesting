@@ -28,6 +28,7 @@ app.get("/", (rep, res) => {
 // Import mc quesion routes
 const mcRoutes = require("./src/routes/mc.route");
 app.get("/multi-choice", mcRoutes);
+app.get("/multi-choice/:id", mcRoutes);
 app.post("/multi-choice", mcRoutes);
 app.put("/multi-choice/:id", mcRoutes);
 app.delete("/multi-choice/:id", mcRoutes);
@@ -35,6 +36,7 @@ app.delete("/multi-choice/:id", mcRoutes);
 // Import essay quesion routes
 const essayRoutes = require("./src/routes/essay.route");
 app.get("/essay", essayRoutes);
+app.get("/essay/:id", essayRoutes);
 app.post("/essay", essayRoutes);
 app.put("/essay/:id", essayRoutes);
 app.delete("/essay/:id", essayRoutes);

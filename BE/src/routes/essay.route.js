@@ -5,6 +5,8 @@ const essayController = require('../controllers/essay.controller');
 
 // get all essay questions
 router.get('/essay', essayController.getAllEssay);
+// get all essay questions by ID
+router.get('/essay/:id', essayController.getAllEssay);
 
 // create new essay questions
 router.post('/essay', essayController.createNewEssay);

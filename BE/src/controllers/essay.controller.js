@@ -1,10 +1,20 @@
 const EssayModel = require('../models/essay.model');
-const McModel = require('../models/mc.model');
+
 
 // get all essay questions
 exports.getAllEssay = (req, res) => {
-    EssayModel.getAllEssay((data) => {
-        res.send(data)
+    EssayModel.getAllEssay((err, essay) => {
+        if (err)
+            res.send(err);
+        res.send(essay);
+    })
+}
+// get essay question by ID
+exports.getEssayByID = (req, res) => {
+    EssayModel.getEssayByID(req.params.id, (err, essay) => {
+        if (err)
+            res.send(err);
+        res.send(essay)
     })
 }
 

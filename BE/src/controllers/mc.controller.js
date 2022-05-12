@@ -1,12 +1,22 @@
+const dbConn = require('../../config/db.config');
 const McModel = require('../models/mc.model');
 
 // get all mc questions
 exports.getAllMc = (req, res) => {
-    McModel.getAllMc((data) => {
-        res.send(data)
+    McModel.getAllMc((err, Mc) => {
+        if (err)
+            res.send(err);
+        res.send(Mc);
     })
 }
-
+//get mc question by ID
+exports.getMcByID = (req, res) => {
+    McModel.getMcByID(req.params.id, (err, Mc) => {
+        if (err)
+            res.send(err);
+        res.send(Mc)
+    })
+}
 
 // create new multiple choice question
 exports.createMc = (req, res) => {
@@ -20,7 +30,7 @@ exports.createMc = (req, res) => {
     }
 }
 
-// update multiple choice question
+// update multiple choice question by ID
 exports.updateMc = (req, res) => {
     const McReqData = new McModel(req.body);
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -32,7 +42,7 @@ exports.updateMc = (req, res) => {
     }
 }
 
-// delete multiple choice question
+// delete multiple choice question by ID
 exports.deleteMc = (req, res) => {
     McModel.deleteMc(req.params.id, (err) => {
         res.json({ status: !!err?.affectedRows, message: err?.affectedRows ? 'Multiple choice question deleted successfully' : 'Deleted false' })

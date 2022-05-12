@@ -11,15 +11,20 @@ var Essay = function (essay) {
 Essay.getAllEssay = (result) => {
     dbConn.query('SELECT * FROM essay', async (err, res) => {
         if (err) {
-            console.log('Error while fetching essay questions', err);
             result(err);
         } else {
-            console.log('Essay questions fetched successfully');
             await result(res);
         }
     })
 }
-
+// get essay question by ID
+Essay.getEssayByID = (id, result) => {
+    dbConn.query('SELECT * FROM essay where id=?', id, (err, res) => {
+        if (err)
+            result(err);
+        result(result);
+    })
+}
 
 // create new essay questions
 Essay.createEssay = (essayReqData, result) => {

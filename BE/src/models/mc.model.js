@@ -24,6 +24,14 @@ MultipelChoice.getAllMc = (result) => {
         }
     });
 }
+// get mc questions by ID
+MultipelChoice.getMcByID = (id, result) => {
+    dbConn.query('SELECT * FROM multiplechoice where id=?', id, (err, res) => {
+        if (err)
+            result(err);
+        result(res);
+    })
+}
 // create new mc questions
 MultipelChoice.createMc = (McReqData, result) => {
     dbConn.query('INSERT INTO multiplechoice SET ? ', McReqData, (err, res) => {
