@@ -17,6 +17,14 @@ exports.getMcByID = (req, res) => {
         res.send(Mc)
     })
 }
+//get mc question by category
+exports.getMcByID = (req, res) => {
+    McModel.getMcByID(req.params.categoryID, (err, Mc) => {
+        if (err)
+            res.send(err);
+        res.send(Mc)
+    })
+}
 
 // create new multiple choice question
 exports.createMc = (req, res) => {
