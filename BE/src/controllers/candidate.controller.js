@@ -24,7 +24,7 @@ exports.createNewCandidate = (req, res) => {
         CandidateModel.createCandidate(candidateReqData, (err, candidate) => {
             if (err)
                 res.send(err);
-            res.json({ status: true, message: 'candidate Created Successfully', data: candidate.insertId })
+            res.json({ status: true, message: 'candidate Created Successfully' })
         })
     }
 }

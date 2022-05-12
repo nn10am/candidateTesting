@@ -9,9 +9,6 @@ var MultipelChoice = function (Mc) {
     this.choice3 = Mc.choice3;
     this.answer = Mc.answer;
     this.adminID = Mc.adminID;
-    //TODO: làm sau
-    // this.created_at = new Date();
-    // this.updated_at = new Date();
 }
 
 
@@ -29,10 +26,6 @@ MultipelChoice.getAllMc = (result) => {
 }
 // create new mc questions
 MultipelChoice.createMc = (McReqData, result) => {
-    //TODO: có 2 cách để thêm id vào trong db:
-    // - Cách 1: thêm bằng trigger: google
-    // - Cách 2: thêm bằng việc get ra id lớn nhất của bảng đó. rồi + 1 vào data thêm vào này.
-    // McReqData.id = thằng get ra +1 
     dbConn.query('INSERT INTO multiplechoice SET ? ', McReqData, (err, res) => {
         if (err) {
             console.log('Error while inserting data');

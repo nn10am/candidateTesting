@@ -4,15 +4,15 @@ const router = express.Router();
 const essayController = require('../controllers/essay.controller');
 
 // get all essay questions
-router.get('/essaylist', essayController.getAllEssay);
+router.get('/essay', essayController.getAllEssay);
 
 // create new essay questions
-router.post('/newessay', essayController.createNewEssay);
+router.post('/essay', essayController.createNewEssay);
 
 // update essay question
-router.put('/upessay', essayController.updateEssay);
+router.put('/essay/:id', essayController.updateEssay);
 
 // delete essay question
-router.delete('/deless', essayController.deleteEssay);
+router.delete('/essay/:id', essayController.deleteEssay);
 
 module.exports = router;

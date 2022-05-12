@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors')
 const bodyParser = require('body-parser');
 
 // Create express app
 const app = express();
+app.use(cors())
 
 // Setup the server port
 const port = process.env.PORT || 5000;
@@ -32,9 +34,11 @@ app.delete("/multi-choice/:id", mcRoutes);
 
 // Import essay quesion routes
 const essayRoutes = require("./src/routes/essay.route");
+app.get("/essay", essayRoutes);
+app.post("/essay", essayRoutes);
+app.put("/essay/:id", essayRoutes);
+app.delete("/essay/:id", essayRoutes);
 
-// Create mc routes
-app.get("/essaylist", essayRoutes);
 
 // Import candidate routes
 const candidateRoutes = require("./src/routes/candidate.route");

@@ -2,8 +2,8 @@ const McModel = require('../models/mc.model');
 
 // get all mc questions
 exports.getAllMc = (req, res) => {
-    McModel.getAllMc((err) => {
-        res.send(err)
+    McModel.getAllMc((data) => {
+        res.send(data)
     })
 }
 
@@ -27,7 +27,7 @@ exports.updateMc = (req, res) => {
         res.send(400).send({ success: false, message: 'Please fill all fields' });
     } else {
         McModel.updateMc(req.params.id, McReqData, (err) => {
-            res.json({ status: !!err?.changedRows, message: err?.changedRows ? 'Multiple choice question updated successfully' : 'updated false' })
+            res.json({ status: !!err?.changedRows, message: err?.changedRows ? 'Multiple choice question updated successfully' : 'Updated false' })
         })
     }
 }
@@ -35,7 +35,6 @@ exports.updateMc = (req, res) => {
 // delete multiple choice question
 exports.deleteMc = (req, res) => {
     McModel.deleteMc(req.params.id, (err) => {
-        console.log("err", err)
         res.json({ status: !!err?.affectedRows, message: err?.affectedRows ? 'Multiple choice question deleted successfully' : 'Deleted false' })
     })
 }

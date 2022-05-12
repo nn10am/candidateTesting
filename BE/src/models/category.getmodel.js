@@ -3,7 +3,6 @@ var dbConn = require('../../config/db.config');
 var Category = function (Cat) {
     this.id = Cat.id;
     this.categoryName = Cat.categoryName;
-    this.status = Cat.status ? Cat.status : 1;
     this.created_at = new Date();
     this.updated_at = new Date();
 }

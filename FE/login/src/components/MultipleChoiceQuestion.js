@@ -6,30 +6,21 @@ class MultipleChoiceQuestion extends React.Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             listUsers: [],
-
         }
     }
 
-    /* componentDidMount() {
-         axios.get('http://localhost:3000/Essay')
-             .then (res => {
-                 console.log('>>>check res',res.data)
-             })
-     }
-     */
     async componentDidMount() {
         let res = await axios.get('http://localhost:5000/multi-choice')
+        console.log(res)
         this.setState({
             listUsers: res && res.data ? res.data : []
         })
     }
     essQuestionDeleteHandler = (idDelete) => {
-
         if (window.confirm('Bạn có chắc chắn muốn xóa không?')) {
-            axios.delete(`http://localhost:3000/MultipleChoice/${idDelete}`);
+            axios.delete(`http://localhost:5000/multi-choice/${idDelete}`);
 
             let currenUsers = this.state.listUsers;
             currenUsers = currenUsers.filter(item => item.id !== idDelete);
@@ -49,15 +40,14 @@ class MultipleChoiceQuestion extends React.Component {
                     Danh sách câu hỏi trắc nghiệm
                 </h3>
                 <div className="list-user-content">
-
                 </div>
-
-
                 <table id="customers">
                     <tr>
                         <th>ID</th>
                         <th>Nội dung câu hỏi</th>
-
+                        <th>Lựa chọn 1</th>
+                        <th>Lựa chọn 2</th>
+                        <th>Lựa chọn 3</th>
                         <th>Đáp án</th>
                         <th>Chỉnh sửa</th>
                     </tr>
@@ -67,22 +57,21 @@ class MultipleChoiceQuestion extends React.Component {
                             return (
                                 <tr className="child" key={item.id}>
                                     <td>{item.id}</td>
-                                    <td>{item.contentMC}</td>
-                                    <td>{item.correctAnswer}</td>
+                                    <td>{item.content}</td>
+                                    <td>{item.choice1}</td>
+                                    <td>{item.choice2}</td>
+                                    <td>{item.choice3}</td>
+                                    <td>{item.answer}</td>
                                     <td>
                                         <Link className="editbutton" to={`/MultipleChoiceQuestions/edit/${key}`}><i className="fa-solid fa-pencil" /></Link>
                                         <Link className="editbutton" to={`/MultipleChoiceQuestions/view/${key}`}><i className="fa-solid fa-eye"></i></Link>
                                         <button className="deletebutton" onClick={() => this.essQuestionDeleteHandler(key)}><i className="fa-solid fa-trash"></i></button>
-
                                     </td>
-
                                 </tr>
-
                             )
                         })
                     }
                 </table>
-
             </div>
         )
     }
